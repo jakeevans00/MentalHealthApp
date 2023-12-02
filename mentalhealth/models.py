@@ -123,10 +123,10 @@ class DjangoSession(models.Model):
 
 
 class Resources(models.Model):
+    id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=45)
-    url = models.CharField(max_length=45, blank=True, null=True)
     author = models.CharField(max_length=45)
-    description = models.CharField(max_length=255, blank=True, null=True)
+    preview = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         managed = False
