@@ -118,6 +118,18 @@ nav h1 {
   display: none;
 }
 
+#menu-label {
+  display: block;
+  width: 30px;
+  height: 45px;
+  background-image: url("../img/menu.png"); /* Add your image URL here */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+
 .container {
   max-width: min(80%, 1200px);
   display: flex;
