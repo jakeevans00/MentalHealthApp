@@ -19,6 +19,7 @@
   color-scheme: light dark;
   --bg-color: white;
   --font-color: black;
+  --link-color-active: rgb(249, 206, 193);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,29 +30,29 @@
 }
 
 body {
-  font-family: "Maven-pro";
+  font-family: "Quicksand";
   color: var(--font-color);
   background-color: var(--bg-color);
 }
 
 a {
-  color: #47b2e4;
+  color: var(--link-color-active);
   text-decoration: none;
 }
 
 a:hover {
-  color: #73c5eb;
+  color: var(--link-color-active);
   text-decoration: none;
 }
 
 h1 {
   font-size: 3em;
-  font-weight: bold;
+  margin: 1em 0;
 }
 header {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(66, 60, 57);
   color: white;
-  padding: 2em 0;
+  padding: 1em 0;
 }
 
 nav {
@@ -69,15 +70,15 @@ nav {
 .nav-link {
   padding: 0 0.75em;
 }
-.nav-link:active {
-  color: rgb(62, 196, 233);
-}
+
+.active,
 .nav-link:hover {
-  color: rgb(62, 196, 233);
+  color: var(--link-color-active);
 }
 
 nav h1 {
   font-size: 1.25em;
+  font-weight: bolder;
 }
 
 .nav-menu li {
@@ -88,17 +89,71 @@ nav h1 {
 
 .nav-profile img {
   height: 45px;
+  filter: grayscale(100%);
 }
 .nav-brand img {
-  height: 60px;
+  height: 45px;
+}
+
+.nav-toggle {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  /* Styles to apply when the screen width is 768 pixels or smaller */
+  /* For example, you can hide the regular navbar items and show a toggle button */
+
+  /* Hide regular navbar items */
+  .nav-menu.hide {
+    display: none;
+  }
+
+  /* Show toggle button */
+  .nav-toggle {
+    display: block;
+    padding-left: 5px;
+  }
+}
+
+#menu-checkbox {
+  display: none;
 }
 
 .container {
   max-width: min(80%, 1200px);
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
+
+.row {
+  margin: 0.5em 0;
+}
+.center-cont {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+/* Hero Styling */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+.hero__img {
+  max-width: 60%;
+}
+/* Form Elements CSS */
 
 @font-face {
   font-family: "Maven-Pro";
   src: url(../font/MavenPro-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url(../font/Quicksand-VariableFont_wght.ttf);
 }

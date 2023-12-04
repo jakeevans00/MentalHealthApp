@@ -3,16 +3,62 @@
 {% block title%} Home Page{% endblock%} 
 {% block content%}
 
-<main>
-    <div class="container">
-        <h1>Missionary health</h1>
-        <p>Test for database</p>
-        <ul>       
-            {% for resource in resources %}
-            <li>{{ resource.title}} - {{resource.author}}</li>
-            {% endfor %}
-        </ul>
+<div class="container">
+    <div class="row">
+        <div class="hero">
+            <div class="hero__text">
+                <h1>Adjusting to Missionary Life</h1>
+                <p>Test for database</p>
+                <ul>       
+                    {% for resource in resources %}
+                    <li>{{ resource.title}} - {{resource.author}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="hero__img">
+                <img src="{% static 'img/hope.png' %}" alt="" height="100">
+            </div>
+            
+        </div>
+        
     </div>
-</main>
+    <div class="row">
+        <div class="center-cont">
+            <section class="form">
+                <h1>Let's Begin!</h1>
+                <form action="submit" method="post">
+                    <div>
+                        <fieldset>
+                            <legend>How are you feeling?</legend>
+                            <label for="happy">
+                                Happy
+                                <input type="checkbox" id="happy" name="happy">  
+                            </label>
+                            <label for="sad">Sad</label>
+                            <input type="checkbox" id="sad" name="sad">
+                            <label for="playful">Playful</label>
+                            <input type="checkbox" id="playful" name="playful">
+                        </fieldset>
+                    </div>
+                    <div>
+                        <label for="stress-level">Rate your stress level from 1-10</label>
+                        <input type="range" min="1" max="10" id="stress-level" name="stress-level">
+                    </div>
+                    <div>
+                        <label for="file">Submit Journal Entry</label><br>
+                        <input type="file" id="file" name="file" multiple>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    
+
+
+</div>
+     
+
+
 
 {% endblock %}
