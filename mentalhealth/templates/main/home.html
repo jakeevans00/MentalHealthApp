@@ -7,13 +7,13 @@
     <div class="row">
         <div class="hero">
             <div class="hero__text">
-                <h1>Adjusting to Missionary Life</h1>
-                <p>Test for database</p>
+                <h1>Wellness Form</h1>
+                {% comment %} <p>Test for database</p>
                 <ul>       
                     {% for resource in resources %}
                     <li>{{ resource.title}} - {{resource.author}}</li>
                     {% endfor %}
-                </ul>
+                </ul> {% endcomment %}
             </div>
             <div class="hero__img">
                 <img src="{% static 'img/hope.png' %}" alt="" height="100">
@@ -25,158 +25,166 @@
     <div class="row">
         <div class="center-cont">
             <section class="form">
-                <h1>Let's Begin!</h1>
-                <h1>Wellness Form</h1>
-    <form action="submit_form.php" method="post">
-        <h2>General</h2>
-        <label for="stress">I feel stressed: </label>
-        <input type="number" name="stress" min="1" max="10" required>
+                            
+                        
+                <form class="form" action="submit_form.php" method="post">
+                    <h2>General</h2>
+                    <div class="custom-range-container">
+                        <label for="customRange" class="range-label">I feel stressed (1-10):</label>
+                        <input type="range" id="stress" class="custom-range-input" min="1" max="10" value="5">
+                    </div>
+                    <div class="custom-range-container">
+                        <label for="customRange" class="range-label">I have sufficient energy today (1-10):</label>
+                        <input type="range" id="energy" class="custom-range-input" min="1" max="10" value="5">
+                    </div>
+                    <div class="custom-range-container">
+                        <label for="customRange" class="range-label">My relationshps with others are healthy (1-10):</label>
+                        <input type="range" id="relationship" class="custom-range-input" min="1" max="10" value="5">
+                    </div>
+                    
+                    <h2>Physical</h2>
+                    <label for="sleep">I am having trouble sleeping: </label>
+                    <select name="sleep" required>
+                        <option value="always">Always</option>
+                        <option value="often">Often</option>
+                        <option value="sometimes">Sometimes</option>
+                        <option value="rarely">Rarely</option>
+                        <option value="never">Never</option>
+                    </select>
 
-        <label for="energy">I have sufficient energy today: </label>
-        <input type="number" name="energy" min="1" max="10" required>
+                    <label for="health_problems">I have stomach, muscle, or headache problems: </label>
+                    <select name="health_problems" required>
+                        <option value="always">Always</option>
+                        <option value="often">Often</option>
+                        <option value="sometimes">Sometimes</option>
+                        <option value="rarely">Rarely</option>
+                        <option value="never">Never</option>
+                    </select>
 
-        <label for="emotions">My emotions are balanced right now: </label>
-        <input type="number" name="emotions" min="1" max="10" required>
+                    <label for="appetite">I lose my appetite: </label>
+                    <select name="appetite" required>
+                        <option value="always">Always</option>
+                        <option value="often">Often</option>
+                        <option value="sometimes">Sometimes</option>
+                        <option value="rarely">Rarely</option>
+                        <option value="never">Never</option>
+                    </select>
 
-        <label for="relationships">My relationships with others are healthy: </label>
-        <input type="number" name="relationships" min="1" max="10" required>
+                    <h2>Emotional</h2>
+                    <label for="miss_home">I miss home or people from home: </label>
+                    <select name="miss_home" required>
+                        <option value="always">Always</option>
+                        <option value="often">Often</option>
+                        <option value="sometimes">Sometimes</option>
+                        <option value="rarely">Rarely</option>
+                        <option value="never">Never</option>
+                    </select>
 
-        <h2>Physical</h2>
-        <label for="sleep">I am having trouble sleeping: </label>
-        <select name="sleep" required>
-            <option value="always">Always</option>
-            <option value="often">Often</option>
-            <option value="sometimes">Sometimes</option>
-            <option value="rarely">Rarely</option>
-            <option value="never">Never</option>
-        </select>
+                    <p>In the past few days, I have felt (select all that apply):</p>
+                    <label><input type="checkbox" name="feelings[]" value="anxious"> Anxious</label><br>
+                    <label><input type="checkbox" name="feelings[]" value="overwhelmed"> Overwhelmed</label><br>
+                    <label><input type="checkbox" name="feelings[]" value="unmotivated"> Unmotivated</label><br>
+                    <label><input type="checkbox" name="feelings[]" value="irritable"> Irritable</label><br>
+                    <label><input type="checkbox" name="feelings[]" value="sad"> Sad</label><br>
+                    <label><input type="checkbox" name="feelings[]" value="lonely"> Lonely</label><br>
+                    <label><input type="checkbox" name="feelings[]" value="other"> Other:</label>
+                    <input type="text" name="other_feelings"><br>
 
-        <label for="health_problems">I have stomach, muscle, or headache problems: </label>
-        <select name="health_problems" required>
-            <option value="always">Always</option>
-            <option value="often">Often</option>
-            <option value="sometimes">Sometimes</option>
-            <option value="rarely">Rarely</option>
-            <option value="never">Never</option>
-        </select>
+                    <label for="self_critical">In the past few days, I have felt hopeless</label>
+                    <select name="self_critical" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="a_little">A little</option>
+                    </select>
+                    <h2>Emotional</h2>
+                    <div class="custom-range-container">
+                        <label for="customRange" class="range-label">How would you rate your mood today? (1-5):</label>
+                        <input type="range" id="stress" class="custom-range-input" min="1" max="5" value="3">
+                    </div>
+                    <label for="self_critical">Have you found yourself being self-critical today?</label>
+                    <select name="self_critical" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="a_little">A little</option>
+                    </select>
 
-        <label for="appetite">I lose my appetite: </label>
-        <select name="appetite" required>
-            <option value="always">Always</option>
-            <option value="often">Often</option>
-            <option value="sometimes">Sometimes</option>
-            <option value="rarely">Rarely</option>
-            <option value="never">Never</option>
-        </select>
+                    <label for="anxiety_inadequacy">Are you dealing with feelings of anxiety or inadequacy?</label>
+                    <select name="anxiety_inadequacy" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="occasionally">Occasionally</option>
+                    </select>
 
-        <h2>Emotional</h2>
-        <label for="miss_home">I miss home or people from home: </label>
-        <select name="miss_home" required>
-            <option value="always">Always</option>
-            <option value="often">Often</option>
-            <option value="sometimes">Sometimes</option>
-            <option value="rarely">Rarely</option>
-            <option value="never">Never</option>
-        </select>
+                    <label for="irritated_angry">Did you experience moments of feeling easily irritated or angry today?</label>
+                    <select name="irritated_angry" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="occasionally">Occasionally</option>
+                    </select>
 
-        <p>In the past few days, I have felt (select all that apply):</p>
-        <label><input type="checkbox" name="feelings[]" value="anxious"> Anxious</label><br>
-        <label><input type="checkbox" name="feelings[]" value="overwhelmed"> Overwhelmed</label><br>
-        <label><input type="checkbox" name="feelings[]" value="unmotivated"> Unmotivated</label><br>
-        <label><input type="checkbox" name="feelings[]" value="irritable"> Irritable</label><br>
-        <label><input type="checkbox" name="feelings[]" value="sad"> Sad</label><br>
-        <label><input type="checkbox" name="feelings[]" value="lonely"> Lonely</label><br>
-        <label><input type="checkbox" name="feelings[]" value="other"> Other:</label>
-        <input type="text" name="other_feelings">
+                    <label for="energy_levels">How would you describe your energy levels today?</label>
+                    <select name="energy_levels" required>
+                        <option value="high">High</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="low">Low</option>
+                    </select>
 
-        <label for="hopeless">In the past few days, I have felt hopeless: </label>
-        <input type="number" name="hopeless" min="1" max="10" required>
+                    <label for="worrying_loved_ones">Are you currently worrying about loved ones back home?</label>
+                    <select name="worrying_loved_ones" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="a_little">A little</option>
+                    </select>
 
-        <h2>Emotional</h2>
-        <label for="mood_rating">How would you rate your mood today in terms of feeling depressed or discouraged? (scale of 1 to 5)</label>
-        <input type="number" name="mood_rating" min="1" max="5" required>
+                    <div class="custom-range-container">
+                        <label for="customRange" class="range-label">How lonely do you feel today (1-5):</label>
+                        <input type="range" id="stress" class="custom-range-input" min="1" max="5" value="3">
+                    </div>
+                    <h2>Social</h2>
+                    <label for="social_interactions">Did you engage in any social interactions today?</label>
+                    <select name="social_interactions" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="a_little">A little</option>
+                    </select>
 
-        <label for="self_critical">Have you found yourself being self-critical today?</label>
-        <select name="self_critical" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            <option value="a_little">A little</option>
-        </select>
+                    <label for="self_care">Have you participated in any self-care activities today?</label>
+                    <select name="self_care" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
 
-        <label for="anxiety_inadequacy">Are you dealing with feelings of anxiety or inadequacy?</label>
-        <select name="anxiety_inadequacy" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            <option value="occasionally">Occasionally</option>
-        </select>
+                    <label for="positive_moments">Can you recall any positive or uplifting moments from today?</label>
+                    <select name="positive_moments" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
 
-        <label for="irritated_angry">Did you experience moments of feeling easily irritated or angry today?</label>
-        <select name="irritated_angry" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            <option value="occasionally">Occasionally</option>
-        </select>
+                    <label for="comfortable_talking">Do you have someone you feel comfortable talking to about your feelings?</label>
+                    <select name="comfortable_talking" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unsure">Unsure</option>
+                    </select>
 
-        <label for="energy_levels">How would you describe your energy levels today?</label>
-        <select name="energy_levels" required>
-            <option value="high">High</option>
-            <option value="moderate">Moderate</option>
-            <option value="low">Low</option>
-        </select>
+                    <h2>Intellectual</h2>
+                    <div class="custom-range-container">
+                        <label for="customRange" class="range-label">How would you rate your progress in learning the language today? (1-5):</label>
+                        <input type="range" id="stress" class="custom-range-input" min="1" max="5" value="3">
+                    </div>
+                    <div class="custom-range-container">
+                        <label for="customRange" class="range-label">How well were you able to stay organized with your goals and plans today? (1-5):</label>
+                        <input type="range" id="stress" class="custom-range-input" min="1" max="5" value="3">
+                    </div>
+                    <label for="feelings_smart">Did you experience moments of not feeling as smart or capable as others today?</label>
+                    <select name="feelings_smart" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="a_little">A little</option>
+                    </select><br>
 
-        <label for="worrying_loved_ones">Are you currently worrying about loved ones back home?</label>
-        <select name="worrying_loved_ones" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            <option value="a_little">A little</option>
-        </select>
-
-        <label for="loneliness_scale">On a scale from 1 to 5, how lonely do you feel today? (1 being not lonely at all, 5 being very lonely)</label>
-        <input type="number" name="loneliness_scale" min="1" max="5" required>
-
-        <h2>Social</h2>
-        <label for="social_interactions">Did you engage in any social interactions today?</label>
-        <select name="social_interactions" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            <option value="a_little">A little</option>
-        </select>
-
-        <label for="self_care">Have you participated in any self-care activities today?</label>
-        <select name="self_care" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select>
-
-        <label for="positive_moments">Can you recall any positive or uplifting moments from today?</label>
-        <select name="positive_moments" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select>
-
-        <label for="comfortable_talking">Do you have someone you feel comfortable talking to about your feelings?</label>
-        <select name="comfortable_talking" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            <option value="unsure">Unsure</option>
-        </select>
-
-        <h2>Intellectual</h2>
-        <label for="language_progress">How would you rate your progress in learning the language today? (1-5)</label>
-        <input type="number" name="language_progress" min="1" max="5" required>
-
-        <label for="goal_organization">How well were you able to stay organized with your goals and plans today? (1 being not organized at all, 5 being very organized)</label>
-        <input type="number" name="goal_organization" min="1" max="5" required>
-
-        <label for="feelings_smart">Did you experience moments of not feeling as smart or capable as others today?</label>
-        <select name="feelings_smart" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            <option value="a_little">A little</option>
-        </select>
-
-        <button type="submit">Submit</button>
-    </form>
+                    <button class="form-submit" type="submit">Submit</button>
+                </form>
             </section>
         </div>
     </div>
