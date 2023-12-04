@@ -114,6 +114,10 @@ nav h1 {
   }
 }
 
+#menu-checkbox {
+  display: none;
+}
+
 .container {
   max-width: min(80%, 1200px);
   display: flex;
