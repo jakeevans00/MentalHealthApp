@@ -12,16 +12,23 @@
     <header>
         <div class="container">
             <nav>
-                <h1>App</h1>
-                <div class="nav-menu">
-                    <li><a class="nav-link" href="/home">Daily Check-in</a></li>
+                <h1>Mente</h1>
+                <div class="nav-menu hide">
+                    <li><a class="nav-link active" href="/home">Daily Check-in</a></li>
                     <li><a class="nav-link" href="/home">Resources</a></li>
                     <li><a class="nav-link" href="/home">Chat</a></li>
                 </div>
-                <div class="nav-profile">
-                    <a href="/signup">                    <img src="{% static 'img/profile.png' %}" alt="">
+                <div class="nav-menu">
+                    <a class="nav-profile" href="/signup">   
+                        <img src="{% static 'img/profile.png' %}" alt="">
                     </a>
+                    <a href="" class="nav-profile nav-toggle">           
+                        <img src="{%static 'img/menu.png'%}" alt="">
+                    </a>
+
                 </div>
+               
+                
             </nav>
         </div>
         
