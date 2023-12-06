@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "mentalhealth.apps.MentalhealthConfig",
+    "crispy_bootstrap5",
     "crispy_forms",
-    "crispy_bootstrap5"
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -90,10 +90,10 @@ DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': env('DATABASE_NAME'),
-	    'USER': env('DATABASE_USER'),
-		'PASSWORD': env('DATABASE_PASS'),
-        'HOST':env('HOST'),
-        'PORT':'3306',
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASS'),
+        'HOST': env('HOST'),
+        'PORT': '3306',
     }
 }
 

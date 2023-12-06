@@ -1,0 +1,78 @@
+{% extends 'main/base.html' %} {% load static %} {% block title%} Check In
+Page{% endblock%} {% block content%}
+
+<main>
+  <div class="container">
+    <h1>Welcome to the Survey for your Depression</h1>
+    <p>
+      Please answer the questions below to the best of your ability:
+    </p>
+
+
+    <form action="/home" method="get">
+        <ol>
+            <h3>Sleep</h3>
+            <li><label>I am having trouble sleeping:</label></li>
+            <ul style="list-style-type: none">
+                <li><label><input type="radio" name="trouble_sleeping" value="always"> Always</label></li>
+                <li><label><input type="radio" name="trouble_sleeping" value="often"> Often</label></li>
+                <li><label><input type="radio" name="trouble_sleeping" value="sometimes"> Sometimes</label></li>
+                <li><label><input type="radio" name="trouble_sleeping" value="rarely"> Rarely</label></li>
+                <li><label><input type="radio" name="trouble_sleeping" value="never"> Never</label></li>
+            </ul>
+
+            <h3>Physical Health</h3>
+            <li><label>I have stomach, muscle, or headache problems:</label>
+            <ul style="list-style-type: none">
+                <li><label><input type="radio" name="stomach" value="always"> Always</label></li>
+                <li><label><input type="radio" name="stomach" value="often"> Often</label></li>
+                <li><label><input type="radio" name="stomach" value="sometimes"> Sometimes</label></li>
+                <li><label><input type="radio" name="stomach" value="rarely"> Rarely</label></li>
+                <li><label><input type="radio" name="stomach" value="never"> Never</label></li>
+            </ul>
+
+            <h3>Emotional</h3>
+            <li><label>I miss home or people from home:</label>
+            <ul style="list-style-type: none">
+                <li><label><input type="radio" name="homesickness" value="always"> Always</label></li>
+                <li><label><input type="radio" name="homesickness" value="often"> Often</label></li>
+                <li><label><input type="radio" name="homesickness" value="sometimes"> Sometimes</label></li>
+                <li><label><input type="radio" name="homesickness" value="rarely"> Rarely</label></li>
+                <li><label><input type="radio" name="homesickness" value="never"> Never</label></li>
+            </ul>
+
+            <li><label>In the past few days I have felt (select all that apply):</label>
+            <ul style="list-style-type: none">
+                <li><label><input type="checkbox" name="emotional_feelings[]" value="anxious"> Anxious</label></li>
+                <li><label><input type="checkbox" name="emotional_feelings[]" value="overwhelmed"> Overwhelmed</label></li>
+                <li><label><input type="checkbox" name="emotional_feelings[]" value="unmotivated"> Unmotivated</label></li>
+                <!-- Add similar structure for other feelings -->
+                <li><label>Other: <input type="text" name="emotional_feelings_other"></label></li>
+            </ul>
+
+            <li><label>In the past few days I have felt hopeless on a scale of 1-10:</label>
+            <input type="number" name="hopeless_feeling" min="1" max="10">
+
+            <li><label>How would you rate your mood today in terms of feeling depressed or discouraged?</label>
+            <ul style="list-style-type: none">
+                <li><label><input type="radio" name="mood_rating" value="1"> 1</label></li>
+                <li><label><input type="radio" name="mood_rating" value="2"> 2</label></li>
+                <li><label><input type="radio" name="mood_rating" value="3"> 3</label></li>
+                <li><label><input type="radio" name="mood_rating" value="4"> 4</label></li>
+                <li><label><input type="radio" name="mood_rating" value="5"> 5</label></li>
+            </ul>
+
+            <li><label>Have you found yourself being self-critical today?</label>
+                <ul style="list-style-type: none">
+                    <li><label><input type="radio" name="critical" value="yes"> Yes</label></li>
+                    <li><label><input type="radio" name="critical" value="no"> No</label></li>
+                    <li><label><input type="radio" name="critical" value="a_little"> A Little</label></li>
+                </ul>
+
+        </ol>
+        <input type="submit" value="Submit">
+    </form>
+  </div>
+</main>
+
+{% endblock %}
